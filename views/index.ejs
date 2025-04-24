@@ -10,7 +10,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1, user-scalable=no">
     <meta name="description" content="" />
     <meta
       name="author"
@@ -18,11 +18,11 @@
     />
     <meta name="generator" content="Hugo 0.112.5" />
     <title>Management</title>
-
+  
     <link href="./css/bootstrap.min.css" rel="stylesheet" />
-
+  
     <link rel="stylesheet" href="./css/dark-light.css" />
-
+  
     <!-- Custom styles for this template -->
     <link href="./css/sidebars.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/myStyle.css" />
@@ -33,12 +33,56 @@
     <main class="d-flex flex-nowrap">
       <%- include('./Components/sidebar.ejs', {currentPage: "index"}) %>
 
+
+
+      <!-- Offcanvas Mobile Sidebar -->
+        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileSidebarLabel">Menu</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="nav nav-pills flex-column">
+              <li class="nav-item mb-1">
+                <a href="/" class="nav-link text-white">
+                  <i class="fa-solid fa-list"></i> List Profs
+                </a>
+              </li>
+              <li class="nav-item mb-1">
+                <a href="/listEtud" class="nav-link text-white">
+                  <i class="fa-solid fa-list-check"></i> List Etudiants
+                </a>
+              </li>
+              <li class="nav-item mb-1">
+                <a href="#" onclick="promptCode('../user/add.html')" class="nav-link text-white">
+                  <i class="fa-solid fa-user-tie"></i> Add Profs
+                </a>
+              </li>
+              <li class="nav-item mb-1">
+                <a href="#" onclick="promptCode('../user/addEtud')" class="nav-link text-white">
+                  <i class="fa-solid fa-graduation-cap"></i> Add Etudiant
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
       <section class="w-100">
         <%- include('./Components/navbar.ejs') %>
 
         <% if (arr.length === 0) { %>
         <h1 style="text-align: center; margin-top: 4rem;">No data available</h1>
         <% } %>
+
+
+
+
+        <form action="/search" method="post" class="d-flex w-75 mx-auto mt-5" role="search">
+          <input class="form-control me-2" name="searchText" type="search" placeholder="Search" aria-label="Search" />
+          <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+
 
 
 
@@ -78,31 +122,26 @@
                   ><i class="bi bi-eye"></i
                 ></a>
 
-                <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="Edit user"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="./edit/<%= item._id %>"
-                >
-                  <i class="bi bi-pencil"></i>
-                </a>
+                     <a href="#"
+                      onclick="showCodePrompt('edit', './edit/<%= item._id %>')"
+                      data-bs-toggle="tooltip"
+                      data-bs-title="Edit user"
+                      data-bs-placement="top"
+                      class="btn btn-primary btn-sm">
+                      <i class="bi bi-pencil"></i>
+                    </a>
 
 
-                <form
-                style="display: inline;"
-                  action="/edit/<%= item._id %>?_method=DELETE"
-                  method="post"
-                >
-                  <button
-                    data-bs-toggle="tooltip"
-                    data-bs-title="Delete user"
-                    data-bs-placement="top"
-                    class="btn btn-success btn-sm"
-                  >
-                    <i class="bi bi-trash"></i>
-                  </button>
-                </form>
+                    <form style="display: inline;" onsubmit="event.preventDefault(); showCodePrompt('delete', '', this)">
+                      <input type="hidden" name="_method" value="DELETE" />
+                      <button
+                        data-bs-toggle="tooltip"
+                        data-bs-title="Delete user"
+                        data-bs-placement="top"
+                        class="btn btn-success btn-sm">
+                        <i class="bi bi-trash"></i>
+                      </button>
+                    </form>
               </td>
             </tr>
             <% }) %>
@@ -113,9 +152,24 @@
 
       
       </section>
+
+
+         <!-- Mini modal for code input -->
+         <div id="codePrompt" style="display: none; position: fixed; top: 30%; left: 50%; transform: translate(-50%, -50%);
+         background: rgba(65, 73, 85, 0.503); padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); z-index: 1000;">
+           <p style="color: rgb(190, 185, 185); background-color: rgba(65, 73, 85, 0.792);" class="p-1">🔒 Enter code :</p>
+           <input type="text" id="codeInput" class="form-control mb-2" />
+           <button onclick="checkCode()" class="btn btn-primary">Submit</button>
+           <button onclick="closePrompt()" class="btn btn-secondary">Cancel</button>
+         </div>
+
+         
     </main>
     
+
+    
     <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="./js/sidebars.js"></script>
 

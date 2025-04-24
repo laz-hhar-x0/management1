@@ -1,18 +1,24 @@
+
+
+
+body {
+  padding-right: 0 !important;
+  overflow-y: auto !important;
+}
+
+body.offcanvas-backdrop {
+  padding-right: 0 !important;
+}
+
+
+
 .bi-lightning-charge::before{
   margin-right: 1rem;
   font-size: 1.9rem;
 }
 
 
-/* SIDEBAR */
-.sidebar{
-  width: 280px;
-  transition: 0.3s;
-}
 
-.small-sidebar{
-  width: 77px;
-}
 
 .small-sidebar .sidebar-text{
   display: none;
@@ -59,5 +65,18 @@
  
   color: #fff;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

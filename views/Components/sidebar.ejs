@@ -1,7 +1,9 @@
-<div
-        id="sidebarId"
-        class="position-relative d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar"
-      >
+
+
+
+
+<div id="sidebarId" class="d-none d-md-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar">
+
         <span style="right: 10px; top: 4px" class="position-absolute">
           <button class="btn" onclick="toggleSidebar()">
             <i  class="bi bi-x-circle"></i>
@@ -17,146 +19,17 @@
           <span class="fs-4 sidebar-text">Management</span>
         </a>
 
-        <!-- <ul>
-          <li> 
-            <ul class="nav nav-pills flex-column mb-auto">
-             <li class="nav-item">
-              <a href="/" class="nav-link  text-white <%= currentPage === "index" ? "active" : null %> " aria-current="page">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#home" />
-                </svg>
-                <span class="sidebar-text"> Main </span>
-              </a>
-            </li>
   
-            <li>
-              <a href="../user/add.html" class="nav-link text-white <%= currentPage === "add" ? "active" : null %> ">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#people-circle" />
-                </svg>
-                <span class="sidebar-text"> Add Customers </span>
-              </a>
-  
-            </li>
-  
-        
-  
-  
-            </ul>
-          </li>
-          
-          <li> 
-            <ul class="nav nav-pills flex-column mb-auto">
-             <li class="nav-item">
-              <a href="/" class="nav-link  text-white <%= currentPage === "index" ? "active" : null %> " aria-current="page">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#home" />
-                </svg>
-                <span class="sidebar-text"> Main </span>
-              </a>
-            </li>
-  
-            <li>
-              <a href="../user/add.html" class="nav-link text-white <%= currentPage === "add" ? "active" : null %> ">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#people-circle" />
-                </svg>
-                <span class="sidebar-text"> Add Customers </span>
-              </a>
-  
-            </li>
-  
-        
-  
-  
-            </ul>
-        </li>
-        </ul> -->
-        
-
-
-        <!-- <div class="btn-group ">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-person-workspace icon-only"></i>
-            <span class="sidebar-text" style="margin-left: 4px;">Profs</span> 
-          </button>
-
-          <ul class="dropdown-menu dropdown-menu-end">
-         
-            <li class="nav-item">
-              <a href="/" class="nav-link  text-white <%= currentPage === "index" ? "active" : null %> " aria-current="page">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#home" />
-                </svg>
-                <span class="sidebar-text"> List profs </span>
-              </a>
-            </li>
-           
-
-
-
-
-            <li >
-              <a href="../user/add.html" class="nav-link text-white <%= currentPage === "add" ? "active" : null %> ">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#people-circle" />
-                </svg>
-                <span class="sidebar-text"> Edit profs  </span>
-              </a>
-  
-            </li>
-
-
-            
-           
-
-          </ul>
-
-
-        </div>
-        -->
-        
-        <!-- <hr /> -->
-
-        <!-- <div class="btn-group">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            Étudiants
-          </button>
-
-          <ul class="dropdown-menu dropdown-menu-end">
-
-            <li class="nav-item">
-              <a href="/" class="nav-link  text-white <%= currentPage === "index" ? "active" : null %> " aria-current="page">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#home" />
-                </svg>
-                <span class="sidebar-text"> List étudiants </span>
-              </a>
-            </li>
-
-            <li>
-              <a href="../user/add.html" class="nav-link text-white <%= currentPage === "add" ? "active" : null %> ">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#people-circle" />
-                </svg>
-                <span class="sidebar-text"> Edit étudiants  </span>
-              </a>
-  
-            </li>
-
-
-          </ul>
-          
-        </div> -->
-
         <hr />
       
         
           
         <ul class="nav nav-pills flex-column mb-auto">
-             <li class="nav-item mb-1">
+            
+          
+           <li class="nav-item mb-1">
               <a href="/" class="nav-link  text-white <%= currentPage === "index" ? "active" : null %> " aria-current="page">
-                <i class="fa-solid fa-list"></i>
+                <i class="fa-solid fa-list" ></i>
                 <span style="margin-left: 20px;" class="sidebar-text"> List profs </span>
               </a>
             </li>
@@ -169,7 +42,7 @@
             </li>
 
             <li>
-              <a href="../user/add.html" class="nav-link mb-1 text-white <%= currentPage === "add" ? "active" : null %> ">
+              <a href="#" onclick="promptCode('../user/add.html')" class="nav-link mb-1 text-white <%= currentPage === 'add' ? 'active' : null %>">
                 <i class="fa-solid fa-user-tie"></i>
                 <span style="margin-left: 25px;" class="sidebar-text"> Add Profs </span>
               </a>
@@ -177,13 +50,26 @@
             </li>
   
             <li>
-              <a href="../user/addEtud" class="nav-link mb-1 text-white <%= currentPage === "addEtud" ? "active" : null %> ">
-                <i class="fa-solid fa-graduation-cap"  ></i>
+              <a href="#" onclick="promptCode('../user/addEtud')" class="nav-link mb-1 text-white <%= currentPage === 'addEtud' ? 'active' : null %>">
+                <i class="fa-solid fa-graduation-cap"></i>
                 <span style="margin-left: 20px;" class="sidebar-text"> Add Etudiant </span>
               </a>
    
             </li>
-      
+   
+   
+   
+         <!-- Mini modal for code input -->
+          <!-- <div id="codePrompt" style="display: none; position: fixed; top: 30%; left: 50%; transform: translate(-50%, -50%);
+          background: rgba(65, 73, 85, 0.503); padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); z-index: 1000;">
+            <p style="color: rgb(190, 185, 185); background-color: rgba(65, 73, 85, 0.792);" class="p-1">🔒 Enter code :</p>
+            <input type="text" id="codeInput" class="form-control mb-2" />
+            <button onclick="checkCode()" class="btn btn-primary">Submit</button>
+            <button onclick="closePrompt()" class="btn btn-secondary">Cancel</button>
+          </div> -->
+
+
+
         </ul> 
 
 
