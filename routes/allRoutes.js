@@ -123,7 +123,7 @@ router.post("/searchEtud", (req, res) => {
 // -------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------
 // DELETE Request
-router.delete("/edit/:id", (req, res) => {
+router.delete("/delet/:id", (req, res) => {
   User.deleteOne({ _id: req.params.id })
     .then((result) => {
       res.redirect("/");
@@ -134,7 +134,7 @@ router.delete("/edit/:id", (req, res) => {
     });
 });
 
-router.delete("/editEtud/:id", (req, res) => {
+router.delete("/deletEtud/:id", (req, res) => {
   Etud.deleteOne({ _id: req.params.id })
     .then((result) => {
       res.redirect("/listEtud");

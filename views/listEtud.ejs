@@ -84,7 +84,7 @@
           
           <form action="/searchEtud" method="post" class="d-flex  w-75 mx-auto mt-5" role="search">
             <input class="form-control me-2" name="searchText" type="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-primary" type="submit">Search</button>
+            <button class="btn" style="background-color: #32cbe9; color: rgb(0, 0, 0);" type="submit">Search</button>
           </form>
           
           <table
@@ -133,14 +133,14 @@
                 </a>
 
 
-                <form style="display: inline;" onsubmit="event.preventDefault(); showCodePrompt('delete', '', this)">
-                  <input type="hidden" name="_method" value="DELETE" />
-                  <button
-                    data-bs-toggle="tooltip"
-                    data-bs-title="Delete user"
-                    data-bs-placement="top"
-                    class="btn btn-success btn-sm"
-                  >
+                <form action="/deletEtud/<%= item._id %>?_method=DELETE" method="POST" style="display: inline;" onsubmit="event.preventDefault(); showCodePrompt('delete', '', this)">
+                    <input type="hidden" name="_method" value="DELETE" />
+                    <button
+                      data-bs-toggle="tooltip"
+                      data-bs-title="Delete user"
+                      data-bs-placement="top"
+                      class="btn btn-success btn-sm"
+                    >
                     <i class="bi bi-trash"></i>
                   </button>
                 </form>
@@ -161,7 +161,7 @@
 
       
       </section>
-
+m 
 
 
 
@@ -169,7 +169,7 @@
           <div id="codePrompt" style="display: none; position: fixed; top: 30%; left: 50%; transform: translate(-50%, -50%);
           background: rgba(65, 73, 85, 0.503); padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); z-index: 1000;">
             <p style="color: rgb(190, 185, 185); background-color: rgba(65, 73, 85, 0.792);" class="p-1">🔒 Enter code :</p>
-            <input type="text" id="codeInput" class="form-control mb-2" />
+            <input type="password" id="codeInput" class="form-control mb-2" />
             <button onclick="checkCode()" class="btn btn-primary">Submit</button>
             <button onclick="closePrompt()" class="btn btn-secondary">Cancel</button>
           </div>
@@ -178,11 +178,11 @@
 
 
     </main>
-
+<script src="/js/main.js"></script>
+    <script src="./js/main.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
 
     <script src="./js/sidebars.js"></script>
 
-    <script src="./js/main.js"></script>
   </body>
 </html>

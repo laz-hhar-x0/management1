@@ -108,10 +108,6 @@
               <label for="inputCountry" class="form-label">specialty:</label>
               <select name="specialty" id="inputCountry" class="form-select">
                 <option selected  hidden disabled>Choose here ...</option>
-
-
-
-
                 <%  var specialty_list = ["informatique","droi","math","medcin","biology","chemi","fisic","Economi","Sociology","Arts"]; %>
 
                 <% specialty_list.forEach(item => { %>
@@ -151,13 +147,14 @@
           </div>
 
           <div class="col-12">
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-success" style="background-color: #32cbe9; color: rgb(65, 98, 125);">
               Update changes
             </button>
 
 
             <button
               data-bs-toggle="modal"
+              style="background-color: #C5172E; color: rgb(255, 255, 255);"
               data-bs-target="#exampleModal"
               type="button"
               class="btn btn-danger"
@@ -190,6 +187,8 @@
                 aria-label="Close"
               ></button>
             </div>
+           
+           
             <div class="modal-body">Are you sure you want to continue delete the customer?</div>
             <div class="modal-footer">
               <button
@@ -200,7 +199,7 @@
                 Close
               </button>
             <form action="/edit/<%= obj._id %>?_method=DELETE" method="post">
-                <button type="submit" class="btn btn-danger">
+                <button type="submit" class="btn btn-danger" style="background-color: #0D7C66; color: rgb(255, 255, 255);" >
                   Delete
                 </button>
             </form>

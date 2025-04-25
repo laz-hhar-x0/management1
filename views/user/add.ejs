@@ -7,6 +7,7 @@
       href="../bootstrap-icons-1.10.5/font/bootstrap-icons.min.css"
     />
     <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,11 +26,41 @@
     <!-- Custom styles for this template -->
     <link href="../css/sidebars.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/myStyle.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
    
   </head>
   <body>
     <%- include('../Components/dark-light.ejs') %>
+  <!-- Offcanvas Mobile Sidebar -->
+  <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="mobileSidebarLabel">Menu</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item mb-1">
+          <a href="/" class="nav-link text-white">
+            <i class="fa-solid fa-list"></i> List Profs
+          </a>
+        </li>
+        <li class="nav-item mb-1">
+          <a href="/listEtud" class="nav-link text-white">
+            <i class="fa-solid fa-list-check"></i> List Etudiants
+          </a>
+        </li>
+        <li class="nav-item mb-1">
+          <a href="#" onclick="promptCode('../user/add.html')" class="nav-link text-white">
+            <i class="fa-solid fa-user-tie"></i> Add Profs
+          </a>
+        </li>
+        <li class="nav-item mb-1">
+          <a href="#" onclick="promptCode('../user/addEtud')" class="nav-link text-white">
+            <i class="fa-solid fa-graduation-cap"></i> Add Etudiant
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
 
     <main class="d-flex flex-nowrap">
@@ -83,10 +114,10 @@
 
           <div>
             <div class="col-md-6">
-              <label for="inputage4" class="form-label">Age:</label>
+              <label for="inputage4" class="form-label">Age :</label>
               <input
               name="age"
-                placeholder="Your Age: ..."
+                placeholder="Age ..."
                 type="number"
                 class="form-control"
                 id="inputage4"
@@ -138,7 +169,12 @@
       </section>
     </main>
 
+
+  
+
+
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="./js/color-modes.js"></script>
 
     <script src="../js/sidebars.js"></script>
     <script src="../js/main.js"></script>
