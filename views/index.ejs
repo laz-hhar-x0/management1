@@ -54,12 +54,12 @@
                 </a>
               </li>
               <li class="nav-item mb-1">
-                <a href="#" onclick="promptCode('../user/add.html')" class="nav-link text-white">
+                <a href="#" onclick="event.preventDefault(); promptCode('../user/add.html', 'addProf')" class="nav-link text-white">
                   <i class="fa-solid fa-user-tie"></i> Add Profs
                 </a>
               </li>
               <li class="nav-item mb-1">
-                <a href="#" onclick="promptCode('../user/addEtud')" class="nav-link text-white">
+                <a href="#" onclick="event.preventDefault(); promptCode('../user/addEtud', 'addEtud')" class="nav-link text-white">
                   <i class="fa-solid fa-graduation-cap"></i> Add Etudiant
                 </a>
               </li>
@@ -124,7 +124,7 @@
                       data-bs-title="Edit user"
                       data-bs-placement="top"
                       style="background-color: #32cbe9;color: rgb(65, 98, 125);"
-                      class="btn  btn-sm">
+                      class="btn btn-sm">
                       
                       <i class="bi bi-pencil"></i>
                     </a>
