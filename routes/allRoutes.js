@@ -105,9 +105,9 @@ router.post("/search", (req, res) => {
 router.post("/searchEtud", (req, res) => {
   console.log("*******************************");
 
-  const searchText = req.body.searchText.trim();
+  const searchTextEtud = req.body.searchText.trim();
 
-  Etud.find({ $or: [{ fireName: searchText }, { lastName: searchText }] })
+  Etud.find({ $or: [{ fireName: searchTextEtud }, { lastName: searchTextEtud }] })
     .then((result) => {
       console.log(result);
       res.render("user/searchEtud", { arr: result, moment: moment });
@@ -127,7 +127,6 @@ router.delete("/delet/:id", (req, res) => {
   User.deleteOne({ _id: req.params.id })
     .then((result) => {
       res.redirect("/");
-      console.log(result);
     })
     .catch((err) => {
       console.log(err);
@@ -138,7 +137,6 @@ router.delete("/deletEtud/:id", (req, res) => {
   Etud.deleteOne({ _id: req.params.id })
     .then((result) => {
       res.redirect("/listEtud");
-      console.log(result);
     })
     .catch((err) => {
       console.log(err);
