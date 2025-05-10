@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 // define the Schema (the structure of the article)
 const userSchema = new Schema({
-  fireName: String,
+  firstName: String,
   lastName: String,
   email: String,
   phoneNumber: String,

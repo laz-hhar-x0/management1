@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
-const port = 3001;
+const path = require("path");
+const port = 3002;
 const mongoose = require("mongoose");
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // هذا مهم لقبول JSON من body
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -11,6 +13,7 @@ app.use(express.static("public"));
 var methodOverride = require("method-override");
 app.use(methodOverride("_method"));
 
+app.use("/addProf", require("./routes/addUser"));
 
 
 const allRoutes = require("./routes/allRoutes");
@@ -19,25 +22,43 @@ const addUserRoutee = require("./routes/addUserRoutee");
 
 
 
+// ----------------------------------------
+const uploadRoute = require("./routes/uploadRoute");
+app.use(express.urlencoded({ extended: true }));
+
+
+app.use("/uploads", express.static("uploads"));
+
+
+app.use("/", uploadRoute);
+
+
+
+const pdfRoute = require("./routes/pdfRoute"); // اسم الملف
+app.use("/", pdfRoute);
+
+
+
+
+
+
+// ---------------------------------------------------
+
+
+
+const viewPdfRoute = require("./routes/viewPdfRoute");
+app.use("/", viewPdfRoute);
+
+app.get("/pdf/:id", async (req, res) => {
+  // ...
+});
+
+
+
 
 
 // Auto refresh
-const path = require("path");
 
-
-// const livereload = require("livereload");
-
-// const liveReloadServer = livereload.createServer();
-// liveReloadServer.watch(path.join(__dirname, "public"));
-
-// const connectLivereload = require("connect-livereload");
-// app.use(connectLivereload());
-
-// liveReloadServer.server.once("connection", () => {
-//   setTimeout(() => {
-//     liveReloadServer.refresh("/");
-//   }, 100);
-// });
 
 mongoose
   .connect(

@@ -10,7 +10,7 @@ router.get("", (req, res) => {
 router.post("", (req, res) => {
   User.create(req.body)
     .then(() => {
-      res.redirect("/");
+      res.redirect("/admin");
     })
     .catch((err) => {
       console.log(err);

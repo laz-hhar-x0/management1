@@ -70,20 +70,30 @@ function checkCode() {
 
   if (currentAction === "edit" && enteredCode === "admin@@") {
     window.location.href = targetUrl;
-  } 
-  else if (currentAction === "delete" && enteredCode === "admin@") {
-    targetForm.submit(); // حذف سواء بروف أو طالب
-  } 
+  }
+  else if (currentAction === "editEtud" && enteredCode === "admin@@") {
+    window.location.href = targetUrl;
+  }
   else if (currentAction === "addProf" && enteredCode === "admin@prof") {
     window.location.href = targetUrl;
   } 
   else if (currentAction === "addEtud" && enteredCode === "admin@etud") {
     window.location.href = targetUrl;
+  }
+  else if (currentAction === "deleteProf" && enteredCode === "admin@") {
+    targetForm.submit();
   } 
+  else if (currentAction === "deleteEtud" && enteredCode === "admin@") {
+    targetForm.submit();
+  }
+  else if (currentAction === "admin" && enteredCode === "1223") {
+    window.location.href = targetUrl;
+  }
   else {
     alert("🚫 Incorrect code for this action!");
     return;
   }
 
   closePrompt(); 
+ 
 }
